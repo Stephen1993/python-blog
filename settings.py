@@ -75,18 +75,18 @@ from flask import Flask
 app = Flask(__name__)
 
 app.config["APP_VER"] = __version__
-app.config["SiteTitle"] = "ME@deepgully"
-app.config["SiteSubTitle"] = ""
-app.config["OwnerEmail"] = "deepgully@gmail.com"
-app.config["DefaultPassword"] = "admin"
+app.config["SiteTitle"] = "藏羚羊"
+app.config["SiteSubTitle"] = "follow your heart"
+app.config["OwnerEmail"] = "2280103398@qq.com"
+app.config["DefaultPassword"] = "ZHANG1993991"
 
 app.config["RUNTIME_ENV"] = RUNTIME_ENV
 
 if RUNTIME_ENV == "bae":
     const = MagicDict()
-    const.APP_ID = "2929012"
-    const.ACCESS_KEY = "YCiKuHCPd62DyeEtpG3c2h7y"
-    const.SECRET_KEY = "dpgazAGGB4724FgvPslu7sUzkwNFesEb"
+    const.APP_ID = "appidl85v1410e1"
+    const.ACCESS_KEY = "517557c6fa47408e810f409152a2fe09"
+    const.SECRET_KEY = "ee0ebcd1f9034e7d812cfd2dcbf3624c"
 
     const.CACHE_ID = "bTXWvXunneyHgLlmglxn"
     const.CACHE_USER = const.ACCESS_KEY
@@ -95,7 +95,7 @@ if RUNTIME_ENV == "bae":
     const.CACHE_PORT = "20243"
     const.CACHE_ADDR = "%s:%s" % (const.CACHE_HOST, const.CACHE_PORT)
 
-    const.MYSQL_DATABASE = "GdCYGKgTwfbhXgAUOJcy"
+    const.MYSQL_DATABASE = "ZWWoOkTkitIIepKsNUzj"
     const.MYSQL_USER = const.ACCESS_KEY
     const.MYSQL_PASS = const.SECRET_KEY
     const.MYSQL_HOST = "sqld.duapp.com"
@@ -104,7 +104,7 @@ if RUNTIME_ENV == "bae":
     const.BCS_ADDR = "http://bcs.duapp.com/"
     const.BCS_USER = const.ACCESS_KEY
     const.BCS_PASS = const.SECRET_KEY
-    const.BCS_BUCKET = "deepgully"
+    const.BCS_BUCKET = "chenyangblog"
     const.BSC_FOLDER = "/photos/"
 
     app.config["BAE_CONFIG"] = const
