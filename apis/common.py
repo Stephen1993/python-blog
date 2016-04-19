@@ -403,7 +403,10 @@ class Category(DBAdapter):
         url = cls.norm_url(settings.pop("url"))
         name = settings.pop("name")
         if cls.check_exist(url=url):
-            raise Exception("category %s exist" % url)
+            if url:
+                raise Exception("category %s exist!" % url)
+            else:
+                raise Exception("category url is empty!")
         dbcategory = DBCategory.create(url=url, name=name)
         dbcategory.save()
         _ = dbcategory.stats  # init stats

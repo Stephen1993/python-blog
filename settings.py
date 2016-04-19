@@ -75,7 +75,7 @@ from flask import Flask
 app = Flask(__name__)
 
 app.config["APP_VER"] = __version__
-app.config["SiteTitle"] = "藏羚羊"
+app.config["SiteTitle"] = u"藏羚羊"
 app.config["SiteSubTitle"] = "follow your heart"
 app.config["OwnerEmail"] = "2280103398@qq.com"
 app.config["DefaultPassword"] = "ZHANG1993991"
@@ -145,15 +145,15 @@ if RUNTIME_ENV in ("bae", "sae"):
     app.config['SQLALCHEMY_POOL_RECYCLE'] = 10
 
 elif RUNTIME_ENV in ("local",):
-    LOCAL_DATABASE = "test"
+    LOCAL_DATABASE = "chenyangblog"
 
-    app.secret_key = "ME@deepgully"
+    app.secret_key = "ee0ebcd1f9034e7d812cfd2dcbf3624c"
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s.db' % LOCAL_DATABASE
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://test:123456@test_server:3306/%s' % LOCAL_DATABASE
+    #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1:3306/%s' % LOCAL_DATABASE
 
 elif RUNTIME_ENV in ("gae", "gae_dev"):
 
-    app.secret_key = "ME@deepgully+GAE"
+    app.secret_key = "ee0ebcd1f9034e7d812cfd2dcbf3624c+GAE"
 
 
 if RUNTIME_ENV in ("bae", "sae", "local"):
