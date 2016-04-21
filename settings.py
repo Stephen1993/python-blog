@@ -77,7 +77,7 @@ app = Flask(__name__)
 app.config["APP_VER"] = __version__
 app.config["SiteTitle"] = u"藏羚羊"
 app.config["SiteSubTitle"] = "follow your heart"
-app.config["OwnerEmail"] = "2280103398@qq.com"
+app.config["OwnerEmail"] = "583695898@qq.com"
 app.config["DefaultPassword"] = "ZHANG1993991"
 
 app.config["RUNTIME_ENV"] = RUNTIME_ENV
