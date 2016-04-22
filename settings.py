@@ -24,7 +24,7 @@ import sys
 import logging
 
 
-__version__ = "2"
+__version__ = "3"
 
 ######################################
 # Global environment
