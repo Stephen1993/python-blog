@@ -56,7 +56,7 @@ def save_file(binary, filename, public=True, mime_type="application/octet-stream
     md5.update(binary)
     md5_data = base64.standard_b64encode(md5.digest())
     bos_client.put_object(const.BUCKET_NAME, object_key, binary, length, md5_data)
-    url = bos_client.generate_pre_signed_url(bucket_name, object_key)
+    url = bos_client.generate_pre_signed_url(const.BUCKET_NAME, object_key)
 
     return url, url
 
