@@ -32,6 +32,7 @@ __version__ = "3"
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, os.path.join(BASE_DIR, "libs"))
+sys.path.append(os.path.join(BASE_DIR, "baidubos"))
 
 
 class MagicDict(dict):
