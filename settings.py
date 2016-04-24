@@ -202,12 +202,12 @@ elif RUNTIME_ENV in ("gae", "gae_dev"):
 # Image Upload
 #####################################
 if RUNTIME_ENV in ("bae",):
-    from baidubce.bce_client_configuration import BceClientConfiguration
-    from baidubce.auth.bce_credentials import BceCredentials
-    from baidubce import exception
-    from baidubce.services import bos
-    from baidubce.services.bos import canned_acl
-    from baidubce.services.bos.bos_client import BosClient
+    from baidubos.baidubce.bce_client_configuration import BceClientConfiguration
+    from baidubos.baidubce.auth.bce_credentials import BceCredentials
+    from baidubos.baidubce import exception
+    from baidubos.baidubce.services import bos
+    from baidubos.baidubce.services.bos import canned_acl
+    from baidubos.baidubce.services.bos.bos_client import BosClient
 
     config = BceClientConfiguration(credentials=BceCredentials(const.ACCESS_KEY_ID, const.SECRET_ACCESS_KEY), endpoint = const.BOS_HOST)
     bos_client = BosClient(config)
