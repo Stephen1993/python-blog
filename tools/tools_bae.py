@@ -49,7 +49,7 @@ def save_file(binary, filename, public=True, mime_type="application/octet-stream
     '''
     #bos
     #response = bos_client.list_objects(bucket_name)
-    bos_client.put_object(const.BUCKET_NAME, object_key, data) #data为流对象
+    bos_client.put_object(const.BUCKET_NAME, object_key, binary)
     url = bos_client.generate_pre_signed_url(bucket_name, object_key)
 
     return url, url
