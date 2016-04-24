@@ -34,17 +34,23 @@ def save_file(binary, filename, public=True, mime_type="application/octet-stream
     today = datetime.now().strftime("%Y/%m/%d/")
     filename = today + filename
 
-    from settings import BAE_BUCKET, const
+    from settings import bos_client, const
 
-    object_name = "%s%s" % (const.BSC_FOLDER, filename)
-
+    object_key = "%s%s" % (const.BOS_FOLDER, filename)
+    
+    '''
     bcs_obj = BAE_BUCKET.object(object_name)
     bcs_obj.put(binary)
-
+    
     if public:
         bcs_obj.make_public()
 
     url = bcs_obj.public_get_url
+    '''
+    #bos
+    #response = bos_client.list_objects(bucket_name)
+    bos_client.put_object(const.BUCKET_NAME, object_key, data) #data为流对象
+    url = bos_client.generate_pre_signed_url(bucket_name, object_key)
 
     return url, url
 

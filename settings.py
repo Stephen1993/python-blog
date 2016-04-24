@@ -100,12 +100,17 @@ if RUNTIME_ENV == "bae":
     const.MYSQL_PASS = const.SECRET_KEY
     const.MYSQL_HOST = "sqld.duapp.com"
     const.MYSQL_PORT = "4050"
-
+    '''
     const.BCS_ADDR = "http://bcs.duapp.com/"
     const.BCS_USER = const.ACCESS_KEY
     const.BCS_PASS = const.SECRET_KEY
     const.BCS_BUCKET = "chenyangblog"
-    const.BSC_FOLDER = "/photos/"
+    '''
+    const.BUCKET_NAME = 'chenyangblog'
+    const.BOS_FOLDER = "/photos/"
+    const.BOS_HOST = "http://bj.bcebos.com"
+    const.ACCESS_KEY_ID = const.ACCESS_KEY
+    const.SECRET_ACCESS_KEY = const.SECRET_KEY
 
     app.config["BAE_CONFIG"] = const
 
@@ -197,8 +202,22 @@ elif RUNTIME_ENV in ("gae", "gae_dev"):
 # Image Upload
 #####################################
 if RUNTIME_ENV in ("bae",):
-    import pybcs
+    from baidubce.bce_client_configuration import BceClientConfiguration
+    from baidubce.auth.bce_credentials import BceCredentials
+    from baidubce import exception
+    from baidubce.services import bos
+    from baidubce.services.bos import canned_acl
+    from baidubce.services.bos.bos_client import BosClient
 
+    config = BceClientConfiguration(credentials=BceCredentials(const.ACCESS_KEY_ID, const.SECRET_ACCESS_KEY), endpoint = const.BOS_HOST)
+    bos_client = BosClient(config)
+    '''
+    if not bos_client.does_bucket_exist(const.BUCKET_NAME):
+        bos_client.create_bucket(const.BUCKET_NAME)
+        #设置私有权限，只有owner有读写权限，其他人无权限
+        bos_client.set_bucket_canned_acl(const.BUCKET_NAME, canned_acl.PRIVATE)
+    '''
+    '''
     pybcs_client = pybcs.HttplibHTTPC
     try:
         import pycurl
@@ -208,6 +227,7 @@ if RUNTIME_ENV in ("bae",):
 
     BAE_BCS = pybcs.BCS(const.BCS_ADDR, const.BCS_USER, const.BCS_PASS, pybcs_client)
     BAE_BUCKET = BAE_BCS.bucket(const.BCS_BUCKET)
+    '''
 
 elif RUNTIME_ENV in ("sae",):
     from sae.storage import Bucket
