@@ -14,6 +14,8 @@
 # limitations under the License.
 
 from datetime import datetime
+import hashlib
+import base64
 
 
 ############################################
@@ -49,7 +51,11 @@ def save_file(binary, filename, public=True, mime_type="application/octet-stream
     '''
     #bos
     #response = bos_client.list_objects(bucket_name)
-    bos_client.put_object(const.BUCKET_NAME, object_key, binary)
+    length = len(binary)
+    md5 = hashlib.md5()
+    md5.update(binary)
+    md5_data = base64.standard_b64encode(md5.digest())
+    bos_client.put_object(const.BUCKET_NAME, object_key, binary, length, md5_data)
     url = bos_client.generate_pre_signed_url(bucket_name, object_key)
 
     return url, url
