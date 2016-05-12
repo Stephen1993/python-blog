@@ -920,8 +920,11 @@ def dispatch_action(parameters, action):
     try:
         parameters = parameters.to_dict()
         method = AJAX_METHODS.get(action)
+        print parameters
         if method:
             for key in parameters:
+                if key == 'file_name':
+                    continue
                 val = json.loads(parameters[key])
                 if isinstance(val, basestring):
                     val = json_loads(val)

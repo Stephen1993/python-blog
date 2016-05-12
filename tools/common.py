@@ -17,6 +17,7 @@ import uuid
 from hmac import HMAC
 from hashlib import sha256
 from functools import wraps
+from datetime import datetime
 
 from urllib import unquote as _unquote
 
@@ -87,7 +88,6 @@ def get_img_type(binary):
 
 
 if QINIU_SETTINGS.Enabled:
-    from datetime import datetime
     from qiniu import io, rs, fop, conf
     from settings import THUMB_SIZE
 
