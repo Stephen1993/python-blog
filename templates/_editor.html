@@ -241,10 +241,10 @@ function Editor(md_converter, callback, album_mode) {
         return thumb;
     };
 
-    var upload_photo = function(data, callback){
+    var upload_photo = function(data, fileName, callback){
         var thumb = new_thumb();
 
-        var settings = { binary : $.toJSON(data.replace(/^.+,/,"")) };
+        var settings = { binary : $.toJSON(data.replace(/^.+,/,"")), file_name: fileName };
         if (!self.is_new_post()) {
             settings.post_id = $.toJSON(self.post.id);
         }
@@ -313,8 +313,9 @@ function Editor(md_converter, callback, album_mode) {
     var bind_upload = function(file){
         if(file.size < 8*1000*1000) {
             var reader = new FileReader();
+            var fileName = file.name;
             reader.onload = function(evt){
-                upload_photo(evt.target.result);
+                upload_photo(evt.target.result, fileName);
             };
             reader.readAsDataURL(file);
         }
@@ -326,7 +327,7 @@ function Editor(md_converter, callback, album_mode) {
             var paste = (new $.paste()).appendTo('body')
                 .on('pasteImage', function(ev, data){
                     show_message("{{ _("Paste Image Uploading ......") }}", false);
-                    upload_photo(data.dataURL, function(photo){
+                    upload_photo(data.dataURL, 'paste', function(photo){
                         md_editor.addText("\n![{0}]({1})\n".format(photo.alt, photo.url));
                     });
                 });

@@ -33,7 +33,7 @@ def send_mail(body, address, fromaddr=None, subject=None, **kwargs):
 ## Images
 ############################################
 def save_file(binary, filename, public=True, mime_type="application/octet-stream"):
-    today = datetime.now().strftime("%Y/%m/")
+    today = datetime.now().strftime("%Y%m/")
     filename = today + filename
 
     from settings import bos_client, const

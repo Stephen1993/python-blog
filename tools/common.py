@@ -144,12 +144,12 @@ if QINIU_SETTINGS.Enabled:
             raise Exception("Qiniu delete file [%s] error: %s res: %s" % (file_path, err, res))
 
 
-def save_photo(binary):
+def save_photo(binary, file_name):
     mime, ext = get_img_type(binary)
     if mime == ImageMime.UNKNOWN:
         raise Exception("unsupported image format")
 
-    rand_str = str(uuid.uuid1())
+    rand_str = datetime.now().strftime("%Y%m%d%H%M%S_") + file_name.split('.')[0] #str(uuid.uuid1())
     filename = rand_str + ext
 
     if QINIU_SETTINGS.Enabled:

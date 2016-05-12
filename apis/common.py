@@ -304,7 +304,7 @@ class Photo(DBAdapter):
 
     @classmethod
     def create_photo(cls, binary, **settings):
-        url, real_file, url_thumb, real_file_thumb, mime = save_photo(binary)
+        url, real_file, url_thumb, real_file_thumb, mime = save_photo(binary, settings['file_name'])
         dbphoto = DBPhoto.create(url=url, mime=mime, real_file=real_file)
         dbphoto.url_thumb = url_thumb
         dbphoto.real_file_thumb = real_file_thumb
