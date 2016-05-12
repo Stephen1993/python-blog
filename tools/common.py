@@ -162,6 +162,7 @@ def save_photo(binary):
 
         url, real_file = save_file(binary, filename, mime_type=mime)
 
+        '''
         url_thumb = real_file_thumb = ""
         try:
             import StringIO
@@ -184,8 +185,9 @@ def save_photo(binary):
             url_thumb, real_file_thumb = save_file(binary, thumb_filename, mime_type=mime)
         except:
             logging.exception("save thumb error")
+        '''
 
-        return url, real_file, url_thumb, real_file_thumb, mime
+        return url, real_file, url, real_file, mime
 
 
 ######################################

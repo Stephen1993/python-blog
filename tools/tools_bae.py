@@ -33,24 +33,13 @@ def send_mail(body, address, fromaddr=None, subject=None, **kwargs):
 ## Images
 ############################################
 def save_file(binary, filename, public=True, mime_type="application/octet-stream"):
-    today = datetime.now().strftime("%Y/%m/%d/")
+    today = datetime.now().strftime("%Y/%m/")
     filename = today + filename
 
     from settings import bos_client, const
 
     object_key = "%s%s" % (const.BOS_FOLDER, filename)
     
-    '''
-    bcs_obj = BAE_BUCKET.object(object_name)
-    bcs_obj.put(binary)
-    
-    if public:
-        bcs_obj.make_public()
-
-    url = bcs_obj.public_get_url
-    '''
-    #bos
-    #response = bos_client.list_objects(bucket_name)
     length = len(binary)
     md5 = hashlib.md5()
     md5.update(binary)
