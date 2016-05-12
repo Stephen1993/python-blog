@@ -52,15 +52,18 @@ def save_file(binary, filename, public=True, mime_type="application/octet-stream
 
 def delete_file(file_path):
     from urlparse import urlsplit
-    from settings import BAE_BCS
+    from settings import bos_client, const
 
     path = urlsplit(file_path).path
+    
     _, bucket_name, object_name = path.split("/", 2)
     object_name = "/" + object_name
-
+    '''
     bucket = BAE_BCS.bucket(bucket_name)
     bcs_obj = bucket.object(object_name)
     bcs_obj.delete()
+    '''
+    bos_client.delete_object(bucket_name, object_name)
 
 
 ############################################
