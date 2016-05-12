@@ -263,6 +263,7 @@ function Editor(md_converter, callback, album_mode) {
 {% set enable_GAE_blobstore = not config["QINIU"].Enabled and config["RUNTIME_ENV"] in ("gae", "gae_dev") %}
 {% if enable_GAE_blobstore %}
     var start_gae_upload = function(files, callback) {
+        alert(1111111111111111);
         $.json_action("photo/upload_url", {},
             function(resp){
                 upload_photo_gae(resp.upload_url, files, callback);
@@ -311,6 +312,7 @@ function Editor(md_converter, callback, album_mode) {
     };
 {% endif %}
     var bind_upload = function(file){
+        alert(2222222222);
         if(file.size < 8*1000*1000) {
             var reader = new FileReader();
             reader.onload = function(evt){
