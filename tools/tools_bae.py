@@ -58,11 +58,6 @@ def delete_file(file_path):
     
     _, bucket_name, object_name = path.split("/", 2)
     object_name = "/" + object_name
-    '''
-    bucket = BAE_BCS.bucket(bucket_name)
-    bcs_obj = bucket.object(object_name)
-    bcs_obj.delete()
-    '''
     bos_client.delete_object(bucket_name, object_name)
 
 
