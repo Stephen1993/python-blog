@@ -76,10 +76,10 @@ from flask import Flask
 app = Flask(__name__)
 
 app.config["APP_VER"] = __version__
-app.config["SiteTitle"] = u"藏羚羊"
-app.config["SiteSubTitle"] = "follow your heart"
-app.config["OwnerEmail"] = "583695898@qq.com"
-app.config["DefaultPassword"] = "ZHANG1993991"
+app.config["SiteTitle"] = u"Stephen"
+app.config["SiteSubTitle"] = "做一些有趣的事, 做一些有趣的人!"
+app.config["OwnerEmail"] = "123456@email.com"
+app.config["DefaultPassword"] = "123456"
 
 app.config["RUNTIME_ENV"] = RUNTIME_ENV
 
