@@ -85,11 +85,11 @@ app.config["RUNTIME_ENV"] = RUNTIME_ENV
 
 if RUNTIME_ENV == "bae":
     const = MagicDict()
-    const.APP_ID = "appidl85v1410e1"
-    const.ACCESS_KEY = "517557c6fa47408e810f409152a2fe09"
-    const.SECRET_KEY = "ee0ebcd1f9034e7d812cfd2dcbf3624c"
+    const.APP_ID = "xxxxxx"
+    const.ACCESS_KEY = "xxxxxx"
+    const.SECRET_KEY = "xxxxxx"
 
-    const.CACHE_ID = "bTXWvXunneyHgLlmglxn"
+    const.CACHE_ID = "xxxxxx"
     const.CACHE_USER = const.ACCESS_KEY
     const.CACHE_PASS = const.SECRET_KEY
     const.CACHE_HOST = "cache.duapp.com"
@@ -153,13 +153,13 @@ if RUNTIME_ENV in ("bae", "sae"):
 elif RUNTIME_ENV in ("local",):
     LOCAL_DATABASE = "chenyangblog"
 
-    app.secret_key = "ee0ebcd1f9034e7d812cfd2dcbf3624c"
+    app.secret_key = "xxxxxx"
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s.db' % LOCAL_DATABASE
     #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1:3306/%s' % LOCAL_DATABASE
 
 elif RUNTIME_ENV in ("gae", "gae_dev"):
 
-    app.secret_key = "ee0ebcd1f9034e7d812cfd2dcbf3624c+GAE"
+    app.secret_key = "xxxxxx+GAE"
 
 
 if RUNTIME_ENV in ("bae", "sae", "local"):
@@ -251,8 +251,8 @@ QINIU_SETTINGS = MagicDict()
 QINIU_SETTINGS.Enabled = False
 
 if QINIU_SETTINGS.Enabled:
-    QINIU_SETTINGS.ACCESS_KEY = "ef1ZZEwlvUzY-kBsp0jtWOf2rka0c_q8fnKMG8KP"
-    QINIU_SETTINGS.SECRET_KEY = "XMM0GVgToJ3hhmVp9Vm-TDClfUe_IWOanqYSoM3a"
+    QINIU_SETTINGS.ACCESS_KEY = "xxxxxx"
+    QINIU_SETTINGS.SECRET_KEY = "xxxxxx"
 
     QINIU_SETTINGS.BUCKET_NAME = "me-deepgully"
     QINIU_SETTINGS.BUCKET_DOMAIN = "me-deepgully.qiniudn.com"
